@@ -67,6 +67,9 @@ def getDuration(origin, destination):
 	return duration
 
 if __name__ == "__main__":
+	miles = ''
+	duration = ''
+
 	# Prompt user to enter origin and destination
 	print("Enables the CanCan application to retrieve distance information from Google's Distance Matrix API.\n")
 
@@ -75,8 +78,11 @@ if __name__ == "__main__":
 
 	print('\n')
 
-	if 'Try a different address.' in origin or 'Try a different address.' in destination:
-		print('This route could not be calculated. Please try a different address.')
+	miles = getMiles(origin, destination)
+	duration = getDuration(origin, destination)
+
+	if 'Try a different address.' in miles or 'Try a different address.' in duration:
+		print('This route could not be calculated. Please try a different address.\n')
 	else:
-		print('Miles between: ' + getMiles(origin, destination))
-		print('Duration between: ' + getDuration(origin, destination) + '\n')
+		print('Miles between: ' + miles)
+		print('Duration between: ' + duration + '\n')
