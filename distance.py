@@ -44,7 +44,12 @@ def getMiles(origin, destination):
 	# Retrieve Distance Response
 	distanceResponse = getDistanceInfo(origin, destination)
 	# Retrieve miles from response
-	miles = distanceResponse['rows'][0]['elements'][0]['distance']['text']
+	try:
+		miles = distanceResponse['rows'][0]['elements'][0]['distance']['text']
+	except:
+		if distanceResponse['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS':
+			error = 'The miles could not be calculated. Try a different address.'
+			return error
 
 	return miles
 
@@ -52,7 +57,12 @@ def getDuration(origin, destination):
 	# Retrieve Distance Response
 	distanceResponse = getDistanceInfo(origin, destination)
 	# Retrieve duration from response
-	duration = distanceResponse['rows'][0]['elements'][0]['duration']['text']
+	try:
+		duration = distanceResponse['rows'][0]['elements'][0]['duration']['text']
+	except:
+		if distanceResponse['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS':
+			error = 'The duration could not be calculated. Try a different address.'
+			return error
 
 	return duration
 
@@ -65,5 +75,8 @@ if __name__ == "__main__":
 
 	print('\n')
 
-	print('Miles between: ' + getMiles(origin, destination))
-	print('Duration between: ' + getDuration(origin, destination) + '\n')
+	if 'Try a different address.' in origin or 'Try a different address.' in destination:
+		print('This route could not be calculated. Please try a different address.')
+	else:
+		print('Miles between: ' + getMiles(origin, destination))
+		print('Duration between: ' + getDuration(origin, destination) + '\n')
