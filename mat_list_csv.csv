@@ -1,0 +1,490 @@
+Material Title,Location Category,Type
+Bricks,Construction,Waste
+Bag-in-a-box (wine),plastic,Plastic
+Beer bottle,Household,Glass
+Beer can,Household,Aluminum
+Eggnog carton,Household,Paper
+Glass bottle (beverage),Household,Glass
+Juice box,Household,Paper
+Juice or drink pouch,Household,Plastic
+Milk carton,Household,Paper
+Milk jug,Household,Plastic
+Pop bottle,Household,Plastic
+Pop can,Household,Aluminum
+Wine bottle,Household,Glass
+Clothes,clothes,Waste
+Clothing,clothes,Waste
+Drywall,construction,Waste
+Baseboards,construction,Waste
+Concrete,construction,Waste
+Lumber,Yard,Waste
+Cooking fats & grease,Chemicals,Waste
+Cooking oil,Chemicals,Waste
+Air compressor,Electronics,Waste
+Air conditioner,Electronics,Waste
+Automotive parts,Waste,Waste
+Ballast,Electronics,E-Cycling
+Bar fridge,Electronics,E-Cycling
+Bicycle tire,Tires,Tires
+Carbon monoxide detector,Electronics,E-Cycling
+Chainsaw,construction,Waste
+Christmas lights,Electronics,E-Cycling
+Dehumidifier,Electronics,E-Cycling
+Extension cord,Electronics,E-Cycling
+Freezer,Electronics,E-Cycling
+Furnace,Construction,Waste
+Hard drive,Electronics,Computers
+Hot water tank,Electronics,E-Cycling
+Lawnmower,Electronics,E-Cycling
+Light bulb (all types),Lightbulbs,E-Cycling
+Motor (small),Scrap Metals,Waste
+Paint can,Household,Aluminum
+Pool heater,Electronics,E-Cycling
+Printer ink cartridge,Ink ,Waste
+Refrigerator,Electronics,E-Cycling
+Rotor tiller,Scrap Metals,Waste
+Satellite dish,Scrap Metals,E-Cycling
+Smoke detector,Electronics,E-Cycling
+Snowblower,Household,Waste
+Tire rim,Tires,Tires
+Tires,Tires,Tires
+Vacuum cleaner,Electronics,E-Cycling
+VHS casette tape,Electronics,E-Cycling
+Video cassette,Electronics,E-Cycling
+Water cooler,Electronics,E-Cycling
+Wheelbarrow,construction,Waste
+Bath tub,Waste,Waste
+Box spring,Household,Waste
+Car seat,Waste,Waste
+Chair,Waste,Waste
+Christmas tree (artificial),Yard,Waste
+Coffee table,Waste,Waste
+Crib,Waste,Waste
+Desk,Waste,Waste
+Door,Waste,Waste
+Furniture,Waste,Waste
+Futon,Waste,Waste
+High chair,Waste,Waste
+Hot tub,Waste,E-Cycling
+Luggage,Waste,Waste
+Mattress,Waste,Waste
+Plastic swimming pool,Waste,Plastic
+Playpen,Waste,Waste
+Stroller,Waste,Waste
+Table,Waste,Waste
+Toilet,Construction,Waste
+Trampoline,Household,Waste
+Waterbed bladder,Waste,Waste
+Windows,Household,Glass
+Wooden pallet,construction,Waste
+AC adapter,Electronics,E-Cycling
+Appliance (small),Electronics,Waste
+Blender,Electronics,E-Cycling
+Camera,Electronics,E-Cycling
+CD player,Electronics,E-Cycling
+Cell phone,Electronics,Mobile Phone
+Cell phone charger,Electronics,Mobile Phone
+Circuit board,Computers,Computers
+Computer cables,Computers,Computers
+Computer keyboard,Computers,Computers
+Computer monitor,Computers,Computers
+Computer mouse,Computers,Computers
+Copier,Computers,E-Cycling
+Computer,Computers,Computers
+Dishwasher,Waste,E-Cycling
+Dryer,Waste,E-Cycling
+DVD player,Electronics,E-Cycling
+E-Reader,Electronics,E-Cycling
+Electric blanket,Electronics,E-Cycling
+Electric toothbrush,Electronics,E-Cycling
+Electronic adapter,Electronics,E-Cycling
+Electronic cable,Electronics,E-Cycling
+Electronics,Electronics,E-Cycling
+Flashlight,Electronics,Waste
+Flat iron,Waste,Waste
+Garden solar light,Waste,E-Cycling
+Hair straightener,Electronics,E-Cycling
+Humidifier,Electronics,E-Cycling
+Laptop,Computers,Computers
+Lava lamp,Electronics,E-Cycling
+Microwave,Electronics,E-Cycling
+Power cord,Electronics,E-Cycling
+Power tool,Electronics,E-Cycling
+Printer,Electronics,E-Cycling
+Projector,Electronics,E-Cycling
+Razor (electric),Electronics,E-Cycling
+Receiver,Electronics,E-Cycling
+Record player,Electronics,E-Cycling
+Scanner,Electronics,E-Cycling
+Sewing machine,Electronics,E-Cycling
+Snow blower,construction,E-Cycling
+Solar panel,Electronics,E-Cycling
+Speaker,Electronics,E-Cycling
+Steam cleaner,Electronics,E-Cycling
+Stove,Waste,Waste
+Tablet (electronic),Electronics,E-Cycling
+Phone,Electronics,E-Cycling
+Television,tv,E-Cycling
+Thermometer (digital),Electronics,E-Cycling
+Thermostat (digital),Electronics,E-Cycling
+Toaster,Electronics,E-Cycling
+Electronic toy,Electronics,E-Cycling
+Turntable,Waste,Waste
+Vacuum cleaner,Electronics,E-Cycling
+VCR player,Electronics,E-Cycling
+Clock,Waste,Waste
+Washing machine,Electronics,E-Cycling
+Aerosol can (hazardous contents),Chemicals,Waste
+Battery (disposable),Alkaline Batteries,Battery
+Bleach,Waste,Waste
+Butane cartridge,Chemicals,Waste
+Battery (computer),Computers,Battery
+Halogen light bulb,Lightbulbs,E-Cycling
+Hearing aid battery,Alkaline Batteries,Battery
+"Household cleaner (corrosive, poisonous)",Chemicals,Waste
+Mercury thermometer,Chemicals,Waste
+Nail polish remover,Chemicals,Waste
+Paint,Chemicals,Waste
+Perfume,Chemicals,Waste
+"Pesticide, Garden Chemicals, Fertilizer",Chemicals,Waste
+Pool chemicals,Chemicals,Waste
+Toilet bowl cleaner,Chemicals,Waste
+Wood preservative,Chemicals,Waste
+Asphalt,construction,Waste
+Asphalt shingles,construction,Waste
+Building insulation,construction,Waste
+Building material,construction,Waste
+Floor underpadding,construction,Waste
+Ceiling tiles,construction,Waste
+Fiberglass insulation,construction,Waste
+Home renovation waste,construction,Waste
+Laminate flooring,construction,Waste
+Landscaping materials,construction,Waste
+Painted wood,construction,Waste
+Paving stone,construction,Waste
+Pressure treated lumber,construction,Waste
+Tree roots,Yard,Waste
+Tree stump,Yard,Waste
+Vinyl flooring,construction,Waste
+Barbeque,Waste,Waste
+Bicycle,Waste,Waste
+Cooking pot (metal),Scrap Metals,Waste
+Copper pipe,construction,Waste
+firepit,Waste,Waste
+Frying pan,construction,Waste
+Ironing board,Waste,Waste
+Ladder (metal),Scrap Metals,Waste
+Metal cabinet,Scrap Metals,Waste
+Metal rod,Scrap Metals,Waste
+Scrap metal,Scrap Metals,Waste
+Screws & nails,Scrap Metals,Waste
+Sink (metal),Scrap Metals,Waste
+Tricycle,Scrap Metals,Waste
+"Wire, metal",Scrap Metals,Waste
+Explosives,Chemicals,Waste
+Ceramic tiles,construction,Waste
+Cupboards,Waste,Waste
+Railroad tie,Waste,Waste
+Stucco,Waste,Waste
+Elm wood,Yard,Waste
+Acids,Chemicals,Waste
+Aerosol can (full or partially full),Chemicals,Waste
+Antifreeze,Chemicals,Waste
+Automotive fluids,Chemicals,Waste
+Battery (car),automotive battery,Battery
+Battery (rechargeable),automotive battery,Battery
+Bear spray,Chemicals,Waste
+Carpet cleaner,Chemicals,Waste
+Caulking,Chemicals,Waste
+Drain cleaner,Chemicals,Waste
+Fire extinguisher,Chemicals,Waste
+Fluorescent tube,Electronics,E-Cycling
+Gasoline,Chemicals,Waste
+Glues & adhesives,Chemicals,Waste
+Hair dye,Chemicals,Waste
+Helium tank,Chemicals,Waste
+Ice melt,Chemicals,Waste
+Ice pack,Chemicals,Waste
+Lighter (full or partially full),Chemicals,Waste
+Mercury thermostat,Chemicals,Waste
+Motor oil,motor oil,Waste
+Motor oil container (empty),Household,Waste
+Nail polish,Chemicals,Waste
+Needles & syringes,Chemicals,Waste
+Oil filter (used),Waste,Waste
+Oven cleaner,Chemicals,Waste
+Paint stripper,Chemicals,Waste
+Paint thinner,Chemicals,Waste
+Pesticide container,Chemicals,Waste
+Pet stain remover,Chemicals,Waste
+Pharmaceuticals,Chemicals,Waste
+Pressurized container,Chemicals,Waste
+Propane gas cylinder,Chemicals,Waste
+Propane tank,Chemicals,Waste
+Shoe polish,Chemicals,Waste
+Spray paint,Chemicals,Waste
+Spray paint can,Household,Waste
+Wood stain,Chemicals,Waste
+Thermostat (non-digital),Chemicals,Waste
+Turpentine & solvents,Chemicals,Waste
+Windshield washer fluid,Chemicals,Waste
+Inhaler,Waste,Waste
+Insulin pen,Waste,Waste
+Medications,prescription medication,Waste
+Ziploc bag,Household,Plastic
+Salad bag,Household,Plastic
+Aerosol can (empty),Household,Aluminum
+Aluminum pie plate,Household,Aluminum
+Aluminum tart shell,Household,Aluminum
+Baby wipe container,Household,Plastic
+Plastic bakery container,Household,Plastic
+Beverage can,Household,Aluminum
+Bleach bottle (empty),Household,Plastic
+Bread bag (plastic),Household,Plastic
+Brochure,Household,Paper
+Cardboard box,Household,Paper
+Coffee creamer carton,Household,Paper
+Comic books,Household,Paper
+Conditioner bottle,Household,Plastic
+Construction paper,Household,Paper
+Cooking oil bottle (empty),Household,Waste
+Dishwash soap bottle,Household,Plastic
+Dry cleaning bag,Household,Plastic
+Fabric softener bottle,Household,Plastic
+Flyers,Household,Paper
+Foil take-out food container,Household,Plastic
+Frozen fruit bag (not stand-up pouch),Household,Plastic
+Frozen vegetable bag (not stand-up pouch),Household,Plastic
+Glass jar,Household,Glass
+Jar lid,Household,Waste
+Laundry detergent box (boxboard),Household,Paper
+Lotion bottle,Household,Plastic
+Magazine,Household,Paper
+Margarine container,Household,Paper
+Mouthwash bottle,Household,Plastic
+Paper,Household,Paper
+Paper booklet,Household,Paper
+Pasta box,Household,Paper
+Peanut butter jar,Household,Glass
+Phone book,Household,Paper
+Plant pots & trays (plastic),Household,Plastic
+"Bottle cap, plastic or metal",Household,Plastic
+Plastic jug,Household,Plastic
+Plastic mayonnaise jar,Household,Plastic
+Plastic retail bag,Household,Plastic
+Plastic salad clamshell container,Household,Plastic
+Plastic spray bottle,Household,Plastic
+Plastic take-out food container,Household,Plastic
+Plastic tubs & lids,Household,Plastic
+Shampoo bottle,Household,Plastic
+Shaving cream can (empty),Household,Aluminum
+Soup can,Household,Aluminum
+Soup carton,Household,Paper
+Spice bottle,Household,Glass
+Sticky note,Household,paper
+Strawberry clamshell container,Household,plastic
+Textbook,Household,paper
+Tissue box,Household,paper
+Toilet paper tube,Household,paper
+Vinegar bottle,Household,Glass
+Yogurt cup,Household,plastic
+Aluminium can,Household,Aluminum
+Aluminum tray,Household,Aluminum
+Broth carton,Household,paper
+Calendar,Household,paper
+Cardboard,Household,paper
+Catalogue,Household,paper
+Cereal box,Household,paper
+Chocolate box (paper or cardboard),Household,paper
+Cigarette package,Household,paper
+Coffee can (plastic),Household,plastic
+Coffee creamer bottle,Household,plastic
+Coffee cup cardboard sleeve,Household,paper
+Coffee cup tray (paper),Household,paper
+Coiled paper notebook,Household,paper
+Cookie tin,Household,Waste
+Drain cleaner container (empty),Household,plastic
+Envelope,Household,paper
+File folder,Household,paper
+Foil tray,Household,Aluminum
+Glass bottle (non-beverage),Household,Glass
+Hand soap container (plastic),Household,plastic
+Ice cream pail,Household,paper
+Index dividers (paper),Household,paper
+Juice carton,Household,paper
+Metal food can,Household,Aluminum
+Moving boxes,Household,paper
+Newspaper,Household,paper
+Paper bag,Household,paper
+Paper leaflet,Household,paper
+Paper receipts,Household,paper
+Cardboard tube,Household,paper
+Plastic pill bottle (empty),Household,plastic
+Pizza box,Household,paper
+Plastic bag,Household,plastic
+Plastic bottle (non-beverage),Household,plastic
+Plastic bottle (beverage),Household,plastic
+Plastic bulk food bag,Household,plastic
+"Plastic ""clamshell"" container",Household,plastic
+Plastic container,Household,plastic
+Laundry detergent bottle,Household,plastic
+Plastic food wrap box,Household,plastic
+Plastic medicine bottle (empty),Household,plastic
+Plastic produce bag,Household,plastic
+Plastic salad dressing bottle (empty),Household,plastic
+Plastic shopping bag,Household,plastic
+Plastic vitamin bottle (empty),Household,plastic
+Whipped cream can (empty),Household,Aluminum
+Windshield washer fluid container,Household,plastic
+Gift wrap (paper),Household,paper
+Yogurt container,Household,plastic
+Appliance (large),Waste,Waste
+Aquarium,Household,Glass
+Area rug,Waste,Waste
+Backpacks & handbags,Waste,Waste
+Bed frame (metal),Waste,Waste
+Bedding & linens,Waste,Waste
+Bicycle parts,Scrap Metals,Waste
+Book (softcover),Household,paper
+Ceiling fan,Scrap Metals,Waste
+Coffee maker,Scrap Metals,Waste
+Computer chair,Waste,Waste
+Couch,Waste,Waste
+Curling iron,Waste,Waste
+Cutlery (metal),Scrap Metals,Waste
+Dish rack,Waste,Waste
+Electric steamer,Electronics,E-Cycling
+Eyeglass case,Household,Waste
+Garment bag,Household,plastic
+Glass aquarium,Household,Glass
+Golf clubs,Household,Waste
+Hair dryer,Electronics,E-Cycling
+Lamp,Waste,Waste
+Lawn furniture,Waste,Waste
+Light fixture,Waste,Waste
+Mug,Waste,Waste
+Paperback book,Household,paper
+Piano,Waste,Waste
+Picnic cooler,Waste,Waste
+Picture frame,Waste,Waste
+Pillows & cushions,Waste,Waste
+Plastic dish drying rack,Household,plastic
+Plastic table cloth,Household,plastic
+Playing cards,Household,paper
+Radio,Electronics,E-Cycling
+Rubber boots,Waste,Waste
+Shelving unit,Waste,Waste
+Shoes,Waste,Waste
+Shower curtain rings,Waste,Waste
+Stationary bike,Electronics,E-Cycling
+Stuffed animal,Waste,Waste
+Tent,Waste,Waste
+Towels,Waste,Waste
+Treadmill,Electronics,E-Cycling
+Vases,Waste,Waste
+Video game system,Electronics,E-Cycling
+Watch,Waste,Waste
+Water faucet,Waste,Waste
+Wig,Waste,Waste
+Window blinds,Waste,Waste
+Yoga mat,Waste,Waste
+Screen door,Waste,Waste
+Sink (ceramic or porcelain),Waste,Waste
+5-gallon pail,Waste,Waste
+Artificial plants & flowers,Waste,Waste
+Baby food jar,Household,Glass
+Basket filler,Waste,Waste
+Beads,Waste,Waste
+"Bottle cap, beer",Waste,Waste
+Binder,Household,paper
+Board game,Waste,Waste
+Book (hardcover),Household,paper
+Bread bag tag,Household,plastic
+Bubble mailer,Waste,Waste
+Bubble wrap,Waste,Waste
+Buttons,Waste,Waste
+Calculator,Electronics,E-Cycling
+Candle jar,Household,Glass
+Candle,Waste,Waste
+Cellophane,Electronics,E-Cycling
+Holiday decorations,Waste,Waste
+Classroom decorations,Waste,Waste
+Clothespin,Waste,Waste
+Coffee can (cardboard),Household,paper
+Coffee can (tin),Household,Aluminum
+Craft foam,Waste,Waste
+Craft paint,Waste,Waste
+Craft supplies,Waste,Waste
+Craft wire,Waste,Waste
+Crayons,Waste,Waste
+DVD,Electronics,E-Cycling
+DVD case,Electronics,E-Cycling
+Fabric scraps,Waste,Waste
+Felt,Waste,Waste
+Floral arranging supplies,Waste,Waste
+Fridge magnet,Waste,Waste
+Frozen juice can lid,Waste,Waste
+"Gift box (paper, cardboard)",Household,paper
+"Gift bag (foil, plastic)",Household,plastic
+Gift bag (paper),Household,paper
+Gift box (foil or non-paper),Household,paper
+Golf ball,Waste,Waste
+Greeting card,Household,paper
+"Jewelry, broken",Waste,Waste
+Keys,Waste,Waste
+Laundry soap scoop (plastic),Household,plastic
+Leather scraps,Waste,Waste
+Maps (paper),Household,paper
+Medal,Waste,Waste
+Paint swatch,Waste,Waste
+Paper egg carton,Household,paper
+Paper notebook,Household,paper
+Party decorations,Waste,Waste
+Pencil crayon,Waste,Waste
+Pens,Waste,Waste
+Photo negatives,Waste,Waste
+Photo slide,Waste,Waste
+Pine cones,Waste,Waste
+Plant pot (ceramic),Waste,Waste
+Plastic egg carton,Household,paper
+Pool noodle,Waste,Waste
+Popsicle sticks,Waste,Waste
+Postcard,Household,paper
+Puzzle,Household,paper
+Ribbons & bows,Household,paper
+Sandpaper,construction,Waste
+Scissors,Scrap Metals,Waste
+Seashells,Waste,Waste
+Shoebox,Household,paper
+Six-pack rings,Waste,Waste
+Stapler,Waste,Waste
+Stickers,Waste,Waste
+"String, twine",Waste,Waste
+Styrofoam egg carton,Waste,Waste
+Styrofoam packing peanuts,Waste,Waste
+Thread,Waste,Waste
+Trophy,Waste,Waste
+Twist tie,Waste,Waste
+Wallpaper,Household,paper
+Wine corks,Waste,Waste
+Wool,Waste,Waste
+Yarn,Waste,Waste
+Animal carcass (large),Waste,Waste
+Asbestos,Waste,Waste
+Branches,Waste,Waste
+Cloth tarp,Waste,Waste
+Election sign,Waste,Waste
+Eyeglasses,Household,Glass
+Carpet,construction,Waste
+Gravel,construction,Waste
+Helmet,construction,Waste
+Mirror,Household,Glass
+Mulch,Yard,Waste
+Nespresso capsule,Waste,Waste
+Plastic vegetable clamshell container,Household,plastic
+Rug,Waste,Waste
+Sod,Yard,Waste
+Soil,Yard,Waste
+Tree trimmings,Yard,Waste
+Vinyl gloves,Waste,Waste
+Yard & garden trimmings,Yard,Waste
