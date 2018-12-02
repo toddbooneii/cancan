@@ -40,31 +40,91 @@ def getDistanceInfo(origin, destination):
 
 	return distanceResponse
 
-def getMiles(origin, destination):
-	# Retrieve Distance Response
-	distanceResponse = getDistanceInfo(origin, destination)
+def getAddress(distanceResponse):
+	address = []
+	
 	# Retrieve miles from response
 	try:
-		miles = distanceResponse['rows'][0]['elements'][0]['distance']['text']
+		for currentAddress in distanceResponse['destination_addresses']:
+			address.append(currentAddress)
+	except:
+		if distanceResponse['status'] == 'ZERO_RESULTS':
+			error = 'The distance could not be calculated. Try a different address.'
+			return error
+
+	return address
+
+def getMiles(distanceResponse):
+	distance = []
+	
+	# Retrieve miles from response
+	try:
+		for element in distanceResponse['rows'][0]['elements']:
+			for key, val in element['distance'].items():
+				if key == 'text':
+					distance.append(val)
 	except:
 		if distanceResponse['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS':
 			error = 'The miles could not be calculated. Try a different address.'
 			return error
 
-	return miles
+	return distance
 
-def getDuration(origin, destination):
-	# Retrieve Distance Response
-	distanceResponse = getDistanceInfo(origin, destination)
+def getDuration(distanceResponse):
+	duration = []
+
 	# Retrieve duration from response
 	try:
-		duration = distanceResponse['rows'][0]['elements'][0]['duration']['text']
+		for element in distanceResponse['rows'][0]['elements']:
+			for key, val in element['duration'].items():
+				if key == 'text':
+					duration.append(val)
 	except:
 		if distanceResponse['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS':
 			error = 'The duration could not be calculated. Try a different address.'
 			return error
 
 	return duration
+
+def getDurationValue(distanceResponse):
+	durationValue = []
+
+	# Retrieve duration from response
+	try:
+		for element in distanceResponse['rows'][0]['elements']:
+			for key, val in element['duration'].items():
+				if key == 'value':
+					durationValue.append(val)
+	except:
+		if distanceResponse['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS':
+			error = 'The duration value could not be calculated. Try a different address.'
+			return error
+
+	return durationValue
+
+def getClosestLocation(origin, destination):
+	closestIndex = ''
+
+	# Retrieve Distance Response
+	distanceResponse = getDistanceInfo(origin, destination)
+
+	# Get lists of corresponding addresses, miles, duration, and duration values
+	address = getAddress(distanceResponse)
+	miles = getMiles(distanceResponse)
+	duration = getDuration(distanceResponse)
+	durationValue = getDurationValue(distanceResponse)
+
+	# Find the index of closest address
+	closestIndex = durationValue.index(min(durationValue))
+	
+	# Create a dictionary that holds informatiion about the closest location
+	closestLocation = {
+		'address': address[closestIndex],
+		'miles': miles[closestIndex],
+		'duration': duration[closestIndex]
+	}
+
+	return closestLocation
 
 if __name__ == "__main__":
 	miles = ''
