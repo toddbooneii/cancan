@@ -17,7 +17,7 @@ def initializeRoot():
     parent.title('background image')
 
     global background_label
-    bg_image = tk.PhotoImage(file="Home.gif")
+    bg_image = tk.PhotoImage(file="Images/Cover.gif")
     # get the width and height of the image
     w = bg_image.width()
     h = bg_image.height()
@@ -92,15 +92,15 @@ class CategoriesGUI():
         clearPage()
         root.parent.title("Recycling Categories")
 
-        newBackground = tk.PhotoImage(file="Home.gif")
+        newBackground = tk.PhotoImage(file="Images/Cover.gif")
         root.create_image(0, 0, image=newBackground, anchor='nw')
 
         i = 0
-        j = 0
+        j = 3
         for b in self.frames:
             if(i > 4):
                 i = 0
-                j += 3
+                j += 1
             root.grid_columnconfigure(i, minsize=(root.image.width()/5))
             root.grid_rowconfigure(i, minsize=(root.image.height()/5))
             b.grid(column=i, row=j, padx=0, pady=0)
@@ -136,9 +136,9 @@ class CategoryInfo():
         clearPage()
         root.parent.title(category + " Info")
 
-        # newBackground = tk.PhotoImage(file=category+".gif")
-        # root.image = newBackground
-        # root.create_image(0, 0, image=newBackground, anchor='nw')
+        newBackground = tk.PhotoImage(file=category+".gif")
+        root.image = newBackground
+        root.create_image(0, 0, image=newBackground, anchor='nw')
 
         self.title.config(state=tk.NORMAL)
         self.title.delete("1.0", tk.END)
@@ -202,9 +202,9 @@ class MaterialsGUI():
         self.category = category
         root.parent.title("Materials of Type: " + category)
 
-        # newBackground = tk.PhotoImage(file=category+".gif")
-        # root.image = newBackground
-        # root.create_image(0, 0, image=newBackground, anchor='nw')
+        newBackground = tk.PhotoImage(file=category+".gif")
+        root.image = newBackground
+        root.create_image(0, 0, image=newBackground, anchor='nw')
 
         self.title.grid(row=0, column=0, padx = 5, pady=5, sticky = 'w')
         self.title.config(state=tk.NORMAL)
@@ -240,7 +240,7 @@ class InformationGUI():
 
     #####Todd function#####
     #####Output goes to directionsOutput####
-    def getDirections(self):
+    def getDirections(self, userAddress):
         self.directionsOutput.config(state=tk.NORMAL)
         self.directionsOutput.delete(0, tk.END)
 
@@ -254,7 +254,7 @@ class InformationGUI():
 
         self.directionsEntry = tk.Entry(root)
         self.directionsSearch = tk.Button(root, text="Search")
-        self.directionsSearch.config(command = lambda: self.getDirections())
+        self.directionsSearch.config(command = lambda: self.getDirections(self.directionsEntry.get()))
 
         self.directionsOutput = tk.Text(root, font=("consolas", 12), wrap='word', bg='white',
                                 height=10, width=30)
