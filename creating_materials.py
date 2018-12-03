@@ -38,7 +38,8 @@ def change_names(location_df):  # changing column names of Locations DF
         "accepts_yard_debris": "Yard",
         "accepts_general_electronics": "Electronics",
         "accepts_ink_and_toner": "Ink",
-        "accepts_motor_oil": "motor oil"
+        "accepts_motor_oil": "motor oil",
+        "accepts_cell_phones": "Mobile Phones"
     }
     location_df.rename(columns=change_names, inplace=True)
     return location_df
