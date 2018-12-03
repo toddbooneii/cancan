@@ -10,7 +10,7 @@ import recycleInfoWebscrape as riw
 import difflib
 import distance
 
-buttonColor = '#c5dfb4'
+buttonColor = '#FFFFFF'
 otherColor = '#384F2E'
 
 #Set up the root tk frame
@@ -260,15 +260,18 @@ class InformationGUI():
 
     def getDirections(self, userAddress):
         cat = matGUI.category
-        distanceInfo = distance.getClosestAppropriateLocation(userAddress, cat)
-
-        distanceInfoString = 'Nearest Facility: ' + "\n"
-        distanceInfoString += str(distanceInfo.get('name')) + "\n\n"
-        distanceInfoString += 'Located at: ' + "\n"
-        distanceInfoString += str(distanceInfo.get('address')) + "\n\n"
-        distanceInfoString += 'Distance from you: ' + "\n"
-        distanceInfoString += str(distanceInfo.get('miles')) + "\n"
-        distanceInfoString += str(distanceInfo.get('duration'))
+        try:
+            distanceInfo = distance.getClosestAppropriateLocation(userAddress, cat)
+            distanceInfoString = 'Nearest Facility: ' + "\n"
+            distanceInfoString += str(distanceInfo.get('name')) + "\n\n"
+            distanceInfoString += 'Located at: ' + "\n"
+            distanceInfoString += str(distanceInfo.get('address')) + "\n\n"
+            distanceInfoString += 'Distance from you: ' + "\n"
+            distanceInfoString += str(distanceInfo.get('miles')) + "\n"
+            distanceInfoString += str(distanceInfo.get('duration'))
+        except:
+            distanceInfoString = "Invalid Address"
+        
 
         self.directionsOutput.config(state=tk.NORMAL)
         self.directionsOutput.delete('1.0', tk.END)
@@ -309,7 +312,12 @@ class InformationGUI():
         self.directionsEntry.grid(column=1, row=1, padx=15, pady=15, ipadx=5, ipady=5, sticky='we')
         self.directionsEntry.delete(0, tk.END)
         self.directionsEntry.insert(tk.END, "Enter address here")
-        self.directionsEntry.focus_set()
+        # self.directionsEntry.focus_set()
+
+        def on_click(event):
+            if self.directionsEntry.get() == "Enter address here":
+                event.widget.delete(0, tk.END)
+        self.directionsEntry.bind("<Button-1>", on_click)
 
         self.directionsOutput.delete('1.0', tk.END)
         self.directionsSearch.grid(column=2, row=1, padx=15, pady=15, ipadx=5, ipady=5)
