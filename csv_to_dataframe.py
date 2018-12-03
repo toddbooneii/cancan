@@ -6,7 +6,7 @@ def get_dataframes(materials_filename, locations_filename):
     locations_df = pd.read_csv(locations_filename, index_col = "name")
     return materials_df.iloc[:,:3], locations_df
 
-def get_dataframes(materials_filename):
+def get_dataframe(materials_filename):
     materials_df = pd.read_csv(materials_filename, index_col="Material Name")
     return materials_df.iloc[:,:3]
 

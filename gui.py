@@ -53,16 +53,16 @@ class CategoriesGUI():
     #Defines the buttons displayed on the first page
     def createButtons(self):
         #Use frank's web scrape here!
-        btn_nms = ['Aluminum', 'Battery', 'Computers', 'E-Cycling', 'Glass',
+        self.btn_nms = ['Aluminum', 'Battery', 'Computers', 'E-Cycling', 'Glass',
                             'Mobile', 'Paper', 'Plastic', 'Tires', 'Waste']
 
         i = 0
-        for b in btn_nms:
+        for b in self.btn_nms:
             self.frames.append(tk.Frame(root))
             self.catButtons.append(tk.Button(self.frames[i], text=b, font = ("consolas", 18), bg=buttonColor))
-            self.catButtons[i].pack(side=tk.TOP)
+            self.catButtons[i].grid(column=0, row=0, sticky='we')
             self.infoButtons.append(tk.Button(self.frames[i], text="More info", font = ("consolas", 10), bg=buttonColor))
-            self.infoButtons[i].pack(side=tk.TOP)
+            self.infoButtons[i].grid(column=0, row=1, sticky='we')
             i += 1
 
         #Buttons bound to showMaterials with correct category
@@ -148,14 +148,13 @@ class CategoryInfo():
         self.title.delete("1.0", tk.END)
         self.title.insert(tk.END, category + " Info")
         self.title.config(state=tk.DISABLED, width=len(category+" Info")-3)
-        self.title.grid(row=0, column=0, sticky = 'nw')
+        self.title.grid(row=0, column=0, sticky = 'we')
 
         self.txt.grid(row=1, column=0, padx=2, pady=2, sticky = 'nw')
         info = riw.getRecycleInfoDF()
         categories = info['Recycling'].tolist()
 
-        names = ['Aluminum', 'Battery', 'Computers', 'E-Cycling', 'Glass',
-                            'Mobile', 'Paper', 'Plastic', 'Tires', 'Waste']
+        names = catGUI.btn_nms
         counter=0
         for b in names:
             if category == b:
@@ -208,10 +207,13 @@ class MaterialsGUI():
         self.showMore.config(command = openInformation)
 
     def searchMaterials(self):
+        self.options.selection_clear(0,tk.END)
         userEntry = self.search.get()
+        self.options.yview_scroll(-100, tk.UNITS)
         for i in range(len(self.currentMaterials)):
             if(userEntry.lower() in self.currentMaterials[i].lower() and userEntry):
                 self.options.selection_set(i)
+                self.options.yview_scroll(i, tk.UNITS)
 
     #Method to show Materials page
     def showMaterials(self, category):
@@ -229,7 +231,7 @@ class MaterialsGUI():
         self.title.insert(tk.END, category)
         self.title.config(state=tk.DISABLED, width=len(category))
 
-        materials = csv_to_dataframe.get_dataframes(self.materials_filename)
+        materials = csv_to_dataframe.get_dataframe(self.materials_filename)
         self.currentMaterials = materials.loc[materials['Type'] == category, 'Material Title']
 
         #Update options pane
@@ -237,6 +239,7 @@ class MaterialsGUI():
         self.options.delete(0, tk.END)
         for i in self.currentMaterials:
             self.options.insert(tk.END, i)
+        self.scroll.grid(column=2, row=2, stick='nsw')
 
         self.backButton.grid(column=0, row=0, padx = 5, pady=5)
 
@@ -258,7 +261,7 @@ class InformationGUI():
     def getDirections(self, userAddress):
         cat = matGUI.category
         distanceInfo = distance.getClosestAppropriateLocation(userAddress, cat)
-        
+
         distanceInfoString = 'Nearest Facility: ' + "\n"
         distanceInfoString += str(distanceInfo.get('name')) + "\n\n"
         distanceInfoString += 'Located at: ' + "\n"
