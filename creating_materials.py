@@ -1,5 +1,5 @@
 import pandas as pd
-
+import math
 
 def create_materials_df():  # this function creates our materials DF
     # This takes our custom types and puts it into a DF
@@ -62,11 +62,10 @@ def find_locations_that_accept_material(location_df, material):
     location_matches = []
     for x, y in location_df.iterrows():
         if(y[material] == 't'):
-            location_info = {
-                "name": y["name"],
-                "address_number": y["address_number"],
-                "street":  y["street"],
-                "city": y["city"]
-            }
-            location_matches.append(location_info)
-    return location_matches  # list of location dicts
+            # Get name of place
+            location_name = y["name"]
+            # Format the address as a single string
+            location_address = str(math.trunc(y["address_number"])) + " " + y["street"] + ", " + y["city"] + ", PA"
+            matchedLocation = {"location_name": y["name"], "location_address": location_address}
+            location_matches.append(matchedLocation)
+    return location_matches  # list of location addresses
