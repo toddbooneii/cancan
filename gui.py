@@ -308,6 +308,7 @@ class InformationGUI():
         self.directionsEntry.insert(tk.END, "Enter address here")
         self.directionsEntry.focus_set()
 
+        self.directionsOutput.delete('1.0', tk.END)
         self.directionsSearch.grid(column=2, row=1, padx=15, pady=15, ipadx=5, ipady=5)
         self.directionsOutput.grid(column=1, row=2, rowspan=3, padx=15, pady=15, ipadx=5, ipady=5, sticky='we')
         self.directionsOutput.config(state=tk.DISABLED)
