@@ -10,9 +10,14 @@ References:
 	http://docs.python-requests.org/en/latest/api/
 '''
 import requests
+import creating_materials
+import difflib
 
 GOOGLE_DISTANCE_API_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
 API_KEY = 'AIzaSyC6ELq9yvgnhnmnnMhfmfPHRBQ6KVjSfMY'
+
+# Initialize recycling locations
+recyclingLocations = creating_materials.create_locations_df()
 
 def getDistanceInfo(origin, destination):
 	'''
@@ -126,23 +131,59 @@ def getClosestLocation(origin, destination):
 
 	return closestLocation
 
+def getClosestAppropriateLocation(origin='Heinz College', material = ''):
+	'''
+	Retrieve closest location that can accept specified material
+	'''
+	# Get origin from GUI
+	'''
+	if GUI_ORIGIN != None:
+		origin = GUI_ORIGIN
+	'''
+
+	# Get material from GUI
+	'''
+	material = GUI_MATERIAL
+	'''
+
+	# Retrieve and format list of all approriate locations
+	appropriateLocations = creating_materials.find_locations_that_accept_material(recyclingLocations, material)
+	listOfAddresses = []
+	for locations in appropriateLocations:
+		listOfAddresses.append(locations['location_address'])
+	formattedListOfAddresses = "|".join(listOfAddresses) # format for Google Distance Matrix API
+
+	'''
+	Get the closest appropriate location in the following format:
+		closestAppropriateLocationDict = {
+			'address': address[closestIndex],
+			'miles': miles[closestIndex],
+			'duration': duration[closestIndex]
+		}
+	'''
+	closestAppropriateLocationDict = getClosestLocation(origin, formattedListOfAddresses)
+	
+	# Append the name of the place at appropriate address
+	for place in appropriateLocations:
+		if place['location_address'] == difflib.get_close_matches(closestAppropriateLocationDict['address'], listOfAddresses)[0]:
+			closestAppropriateLocationDict['name'] = place['location_name']
+
+	return closestAppropriateLocationDict
+
 if __name__ == "__main__":
-	miles = ''
-	duration = ''
-
-	# Prompt user to enter origin and destination
-	print("Enables the CanCan application to retrieve distance information from Google's Distance Matrix API.\n")
-
+	'''
+	Testing getClosestAppropriateLocation() functionality
+	'''
+	print("Enter an address. We will find the closest facility to you that can accept Batteries.\n")
+	
 	origin = input('Enter an origin address: ')
-	destination = input('Enter a destination address: ')
+	material = "Batteries"
 
-	print('\n')
+	closestAppropriateLocationDict = getClosestAppropriateLocation(origin, material)
 
-	miles = getMiles(origin, destination)
-	duration = getDuration(origin, destination)
+	print("Name: " + str(closestAppropriateLocationDict.get('name')))
+	print("Address: " + str(closestAppropriateLocationDict.get('address')))
+	print("Miles: " + str(closestAppropriateLocationDict.get('miles')))
+	print("Duration: " + str(closestAppropriateLocationDict.get('duration')))
 
-	if 'Try a different address.' in miles or 'Try a different address.' in duration:
-		print('This route could not be calculated. Please try a different address.\n')
-	else:
-		print('Miles between: ' + miles)
-		print('Duration between: ' + duration + '\n')
+	# End Testing getClosestAppropriateLocation() functionality
