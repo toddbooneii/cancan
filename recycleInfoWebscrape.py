@@ -151,8 +151,14 @@ allList.append(tireInfo)
 allList.append(wasteInfo)
 allList.append(waterInfo)
 
-#creates a dataframe of recycling name, general info, additional info
-dictionary = {'General Info':generalrecyclyList,'Recycling':headerList, 'Additional Info':allList}
-d1 = pd.DataFrame(dictionary)
-d1 = d1[['Recycling','General Info','Additional Info']]
-d1.to_csv('recycleInfo.csv')
+
+
+def getRecycleInfoDF():
+    #creates a dataframe of recycling name, general info, additional info
+    dictionary = {'General Info':generalrecyclyList,'Recycling':headerList, 'Additional Info':allList}
+    d1 = pd.DataFrame(dictionary)
+    d1 = d1[['Recycling','General Info','Additional Info']]
+    return d1
+    # d1.to_csv('recycleInfo.csv')
+
+getRecycleInfoDF()

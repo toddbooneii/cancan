@@ -6,6 +6,8 @@ except ImportError:
 
 import csv_to_dataframe
 import numpy as np
+import recycleInfoWebscrape as riw
+import difflib
 
 buttonColor = '#c5dfb4'
 otherColor = '#384F2E'
@@ -51,7 +53,7 @@ class CategoriesGUI():
     def createButtons(self):
         #Use frank's web scrape here!
         btn_nms = ['Aluminum', 'Battery', 'Computers', 'E-Cycling', 'Glass',
-                            'Mobile Phone', 'Paper', 'Plastic', 'Tires', 'Waste']
+                            'Mobile', 'Paper', 'Plastic', 'Tires', 'Waste']
 
         i = 0
         for b in btn_nms:
@@ -93,6 +95,7 @@ class CategoriesGUI():
         root.parent.title("Recycling Categories")
 
         newBackground = tk.PhotoImage(file="Images/Cover.gif")
+        root.image = newBackground
         root.create_image(0, 0, image=newBackground, anchor='nw')
 
         i = 0
@@ -136,7 +139,7 @@ class CategoryInfo():
         clearPage()
         root.parent.title(category + " Info")
 
-        newBackground = tk.PhotoImage(file=category+".gif")
+        newBackground = tk.PhotoImage(file="Images/"+category+".gif")
         root.image = newBackground
         root.create_image(0, 0, image=newBackground, anchor='nw')
 
@@ -147,7 +150,20 @@ class CategoryInfo():
         self.title.grid(row=0, column=0, sticky = 'nw')
 
         self.txt.grid(row=1, column=0, padx=2, pady=2, sticky = 'nw')
-        self.txt.insert(tk.END, "Insert frank info here")
+        info = riw.getRecycleInfoDF()
+        categories = info['Recycling'].tolist()
+
+        names = ['Aluminum', 'Battery', 'Computers', 'E-Cycling', 'Glass',
+                            'Mobile', 'Paper', 'Plastic', 'Tires', 'Waste']
+        counter=0
+        for b in names:
+            if category == b:
+                index=counter
+            counter+=1
+
+        self.txt.config(state=tk.NORMAL)
+        self.txt.delete("1.0", tk.END)
+        self.txt.insert(tk.END, info['General Info'][index])
         self.txt.config(state=tk.DISABLED)
         self.scrollb.grid(row=1, column=1, sticky = "nw")
 
@@ -168,7 +184,7 @@ class MaterialsGUI():
 
         self.materials_filename = "Waste_Recycling.csv"
 
-        self.title = tk.Text(root, borderwidth=1, font=font.Font(size=18),
+        self.title = tk.Text(root, borderwidth=1, font=font.Font(size=18, weight="bold"),
                                 height=1)
 
         # bind listbox to scrollbar
@@ -179,7 +195,7 @@ class MaterialsGUI():
         self.searchButton = tk.Button(root, text="Search")
         self.searchButton.config(command = lambda: self.searchMaterials())
 
-        self.backButton = tk.Button(root, text = "Back")
+        self.backButton = tk.Button(root, text = "Back", font=font.Font(size=18))
         self.backButton.config(command = lambda: catGUI.showCategories())
 
         def openInformation():
@@ -187,7 +203,7 @@ class MaterialsGUI():
                 if(self.options.selection_includes(i)):
                     infGUI.showInformation(self.currentMaterials[i])
 
-        self.showMore = tk.Button(root, text="More Info\non Material")
+        self.showMore = tk.Button(root, text="Find your Nearest Recycling Facility")
         self.showMore.config(command = openInformation)
 
     def searchMaterials(self):
@@ -200,36 +216,36 @@ class MaterialsGUI():
     def showMaterials(self, category):
         clearPage()
         self.category = category
-        root.parent.title("Materials of Type: " + category)
+        root.parent.title(category)
 
-        newBackground = tk.PhotoImage(file=category+".gif")
+        newBackground = tk.PhotoImage(file="Images/"+category+".gif")
         root.image = newBackground
         root.create_image(0, 0, image=newBackground, anchor='nw')
 
-        self.title.grid(row=0, column=0, padx = 5, pady=5, sticky = 'w')
+        self.title.grid(row=0, column=1, padx = 5, pady=5, sticky = 'we')
         self.title.config(state=tk.NORMAL)
         self.title.delete("1.0", tk.END)
-        self.title.insert(tk.END, "Materials of Type: "+category)
-        self.title.config(state=tk.DISABLED, width=len("Materials of Type: "+category)-7)
+        self.title.insert(tk.END, category)
+        self.title.config(state=tk.DISABLED, width=len(category))
 
         materials = csv_to_dataframe.get_dataframes(self.materials_filename)
         self.currentMaterials = materials.loc[materials['Type'] == category, 'Material Title']
 
         #Update options pane
-        self.options.grid(column=0, row=2, padx = 5, pady=5, sticky = 'w')
+        self.options.grid(column=1, row=2, padx = 5, pady=5, sticky = 'we')
         self.options.delete(0, tk.END)
         for i in self.currentMaterials:
             self.options.insert(tk.END, i)
 
-        self.backButton.grid(column=1, row=0, padx = 5, pady=5, sticky = 'w')
+        self.backButton.grid(column=0, row=0, padx = 5, pady=5)
 
-        self.search.grid(column=0, row=1, padx = 5, pady=5, sticky = 'w')
+        self.search.grid(column=1, row=1, padx = 5, pady=5, sticky = 'we')
         self.search.delete(0, tk.END)
         self.search.focus_set()
 
-        self.searchButton.grid(column=1, row=1, padx = 5, pady=5, sticky = 'w')
+        self.searchButton.grid(column=2, row=1, padx = 5, pady=5, sticky = 'w')
 
-        self.showMore.grid(column=1,row=2, padx = 5, pady=5, sticky = 'w')
+        self.showMore.grid(column=1,row=3, padx = 5, pady=5, sticky = 'we')
 
 # Third GUI to open with information about material chosen
 class InformationGUI():
@@ -243,14 +259,15 @@ class InformationGUI():
     def getDirections(self, userAddress):
         self.directionsOutput.config(state=tk.NORMAL)
         self.directionsOutput.delete(0, tk.END)
+        self.directionsOutput.insert(0, "INSERT TEXT HERE TODD")
+        self.directionsOutput.config(state=tk.DISABLE)
 
     #Create the widgets to be displayed on third page
     def information(self):
         #####Add location Information
         #####Add additional information for Materials
-        self.directionsTitle = tk.Text(root, borderwidth=1, font=font.Font(size=14), height=3,
-                                            width=20)
-        self.directionsTitle.insert(tk.END, "Directions to nearest\nrecycling center*****\nHelp this title @peter")
+        self.directionsTitle = tk.Text(root, borderwidth=1, font=font.Font(size=18, weight="bold"), height=3,
+                                            width=20, wrap='word')
 
         self.directionsEntry = tk.Entry(root)
         self.directionsSearch = tk.Button(root, text="Search")
@@ -261,21 +278,10 @@ class InformationGUI():
         self.scrollb = tk.Scrollbar(root, command=self.directionsOutput.yview)
         self.directionsOutput['yscrollcommand'] = self.scrollb.set
 
-        self.moreInfoTitle = tk.Text(root, borderwidth=1, font=font.Font(size=14), height=1, width=30)
-
-        self.moreInfo = tk.Text(root, font=("consolas", 12), wrap='word', bg='white',
-                                height=10, width=30)
-
         self.restartButton = tk.Button(root, text = "Restart")
         self.restartButton.config(command = lambda: catGUI.showCategories())
         self.backButton = tk.Button(root, text = "Back")
         self.backButton.config(command = lambda: matGUI.showMaterials(matGUI.category))
-
-    ####Frank info here. Set to self.moreInfo
-    def setInfo(self, material):
-        self.moreInfo.config(state=tk.NORMAL)
-        if self.moreInfo:
-            self.moreInfo.delete("1.0", tk.END)
 
     #Show information page
     def showInformation(self, material):
@@ -283,26 +289,23 @@ class InformationGUI():
         self.material = material
         root.parent.title("Additional Information on: " + material)
 
-        self.directionsTitle.grid(column=0, row=0, padx=15, pady=15, sticky='w')
+        self.directionsTitle.config(state=tk.NORMAL)
+        self.directionsTitle.delete("1.0", tk.END)
+        self.directionsTitle.insert(tk.END, "Find your Nearest "+material+" Recycling Facility")
+        self.directionsTitle.grid(column=1, row=0, padx=15, pady=15, sticky='we')
         self.directionsTitle.config(state=tk.DISABLED)
-        self.directionsEntry.grid(column=0, row=1, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
+
+        self.directionsEntry.grid(column=1, row=1, padx=15, pady=15, ipadx=5, ipady=5, sticky='we')
         self.directionsEntry.delete(0, tk.END)
         self.directionsEntry.insert(tk.END, "Enter address here")
         self.directionsEntry.focus_set()
-        self.directionsOutput.grid(column=0, row=2, rowspan=3, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
+
+        self.directionsSearch.grid(column=2, row=1, padx=15, pady=15, ipadx=5, ipady=5)
+        self.directionsOutput.grid(column=1, row=2, rowspan=3, padx=15, pady=15, ipadx=5, ipady=5, sticky='we')
         self.directionsOutput.config(state=tk.DISABLED)
 
-        self.moreInfoTitle.grid(column=1, row=0, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
-        self.moreInfoTitle.config(state=tk.NORMAL)
-        self.moreInfoTitle.delete("1.0", tk.END)
-        self.moreInfoTitle.insert(tk.END, "More information on "+material)
-        self.moreInfoTitle.config(state=tk.DISABLED)
-        self.moreInfo.grid(column=1, row=2, rowspan=3, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
-        self.setInfo(material)
-        self.moreInfo.config(state=tk.DISABLED)
-
-        self.restartButton.grid(column=2, row=0, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
-        self.backButton.grid(column=2, row=1, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
+        self.restartButton.grid(column=0, row=1, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
+        self.backButton.grid(column=0, row=0, padx=15, pady=15, ipadx=5, ipady=5, sticky='w')
 
 #Run the application
 def main():
@@ -315,7 +318,8 @@ def main():
     matGUI = MaterialsGUI()
     catiGUI = CategoryInfo()
     catGUI = CategoriesGUI()
-    catGUI.showCategories()
+    matGUI.showMaterials("Computers")
+
     root.mainloop()
 
 main()
