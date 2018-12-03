@@ -8,6 +8,7 @@ import csv_to_dataframe
 import numpy as np
 import recycleInfoWebscrape as riw
 import difflib
+import distance
 
 buttonColor = '#c5dfb4'
 otherColor = '#384F2E'
@@ -254,13 +255,21 @@ class InformationGUI():
         self.widgets = []
         self.information()
 
-    #####Todd function#####
-    #####Output goes to directionsOutput####
     def getDirections(self, userAddress):
+        cat = matGUI.category
+        distanceInfo = distance.getClosestAppropriateLocation(userAddress, cat)
+        
+        distanceInfoString = 'Nearest Facility: ' + "\n"
+        distanceInfoString += str(distanceInfo.get('name')) + "\n\n"
+        distanceInfoString += 'Located at: ' + "\n"
+        distanceInfoString += str(distanceInfo.get('address')) + "\n\n"
+        distanceInfoString += 'Distance from you: ' + "\n"
+        distanceInfoString += str(distanceInfo.get('miles')) + "\n"
+        distanceInfoString += str(distanceInfo.get('duration'))
+
         self.directionsOutput.config(state=tk.NORMAL)
-        self.directionsOutput.delete(0, tk.END)
-        self.directionsOutput.insert(0, "INSERT TEXT HERE TODD")
-        self.directionsOutput.config(state=tk.DISABLE)
+        self.directionsOutput.delete('1.0', tk.END)
+        self.directionsOutput.insert('1.0', distanceInfoString)
 
     #Create the widgets to be displayed on third page
     def information(self):
@@ -268,7 +277,6 @@ class InformationGUI():
         #####Add additional information for Materials
         self.directionsTitle = tk.Text(root, borderwidth=1, font=font.Font(size=18, weight="bold"), height=3,
                                             width=20, wrap='word')
-
         self.directionsEntry = tk.Entry(root)
         self.directionsSearch = tk.Button(root, text="Search")
         self.directionsSearch.config(command = lambda: self.getDirections(self.directionsEntry.get()))
@@ -318,7 +326,7 @@ def main():
     matGUI = MaterialsGUI()
     catiGUI = CategoryInfo()
     catGUI = CategoriesGUI()
-    matGUI.showMaterials("Computers")
+    catGUI.showCategories()
 
     root.mainloop()
 

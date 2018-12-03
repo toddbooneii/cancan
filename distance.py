@@ -19,6 +19,21 @@ API_KEY = 'AIzaSyC6ELq9yvgnhnmnnMhfmfPHRBQ6KVjSfMY'
 # Initialize recycling locations
 recyclingLocations = creating_materials.create_locations_df()
 
+def categorySwitcher(category):
+	switcher={
+		'Aluminum':'Scrap Metals',
+		'Battery':'Batteries',
+		'Computers':'Computers',
+		'E-Cycling':'Electronics',
+		'Glass':'Construction',
+		'Mobile':'Mobile Phones',
+		'Paper':'Household',
+		'Plastic':'Plastic',
+		'Tires':'Tires',
+		'Waste':'Construction'
+	}
+	return switcher.get(category,"")
+
 def getDistanceInfo(origin, destination):
 	'''
 	Add paramters to params dict
@@ -135,16 +150,8 @@ def getClosestAppropriateLocation(origin='Heinz College', material = ''):
 	'''
 	Retrieve closest location that can accept specified material
 	'''
-	# Get origin from GUI
-	'''
-	if GUI_ORIGIN != None:
-		origin = GUI_ORIGIN
-	'''
-
-	# Get material from GUI
-	'''
-	material = GUI_MATERIAL
-	'''
+	# Map GUI category names to creating_materials material name
+	material = categorySwitcher(material)
 
 	# Retrieve and format list of all approriate locations
 	appropriateLocations = creating_materials.find_locations_that_accept_material(recyclingLocations, material)
