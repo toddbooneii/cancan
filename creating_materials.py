@@ -1,6 +1,7 @@
 import pandas as pd
 import math
 
+
 def create_materials_df():  # this function creates our materials DF
     # This takes our custom types and puts it into a DF
     adding_types_df = pd.read_csv('mat_list_csv.csv', delimiter=',')
@@ -39,7 +40,7 @@ def change_names(location_df):  # changing column names of Locations DF
         "accepts_general_electronics": "Electronics",
         "accepts_ink_and_toner": "Ink",
         "accepts_motor_oil": "motor oil",
-        "accepts_cell_phones": "Mobile Phones"
+        "accepts_cell_phones": "Mobile"
     }
     location_df.rename(columns=change_names, inplace=True)
     return location_df
@@ -65,7 +66,8 @@ def find_locations_that_accept_material(location_df, material):
             # Get name of place
             location_name = y["name"]
             # Format the address as a single string
-            location_address = str(math.trunc(y["address_number"])) + " " + y["street"] + ", " + y["city"] + ", PA"
+            location_address = str(math.trunc(y["address_number"])) + \
+                " " + y["street"] + ", " + y["city"] + ", PA"
             matchedLocation = {"location_name": y["name"], "location_address": location_address}
             location_matches.append(matchedLocation)
     return location_matches  # list of location addresses
