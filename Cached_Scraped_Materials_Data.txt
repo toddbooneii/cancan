@@ -642,7 +642,7 @@
 640,,frozen_vegetable_bag,"veggie, peas",Frozen vegetable bag (not stand-up pouch),Please stuff plastic bags into one bag and tie closed. This makes them easier for us to sort. Better sorting means more of the right stuff is recycled!,wizard_recycling,Recycling,Household,Plastic
 641,,door,,Door,,eco_station_-_bulky_item,Eco Station - Bulky Items,Waste,Waste
 642,,stationary_bike,,Stationary bike,,eco_station_-_bulky_item,Eco Station - Bulky Items,None,None
-643,,cell_phone,"cellphone, iphone, cordless",Cell phone,,eco_station_-_electronics_appliances,Eco Station - Electronics & Appliances,Electronics,Mobile Phone
+643,,cell_phone,"cellphone, iphone, cordless",Cell phone,,eco_station_-_electronics_appliances,Eco Station - Electronics & Appliances,Electronics,Mobile
 644,,cooking_oil_bottle_empty,,Cooking oil bottle (empty),Remove cap or lid and place separately in recycling. Please rinse containers.,wizard_recycling,Recycling,Household,Waste
 645,,drain_cleaner_container_empty,,Drain cleaner container (empty),Remove cap or lid and place separately in recycling.,wizard_recycling_depots,Recycling Depot,Household,plastic
 646,,paint_stain,"paints, paint cans, paint containers, paint removers, paint sealers, paint thinner, paint trays, urethane, old paint, old paint",Paint,"Maximum container size is 20 litres.  Did you know? Usable paint donated by other residents is offered to Eco Station customers free of charge (up to four cans per visit, quality is not guaranteed).  Since 1995 over 350,000 litres of free paint has been given away in our paint exchange!",wizard_eco_station_-_household_hazardous_waste,Eco Station - HHW,Chemicals,Waste
