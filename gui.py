@@ -1,3 +1,7 @@
+# Python Group 2 CanCan: Peter Awori, Todd Boone, Jackson Brietzke, Frank Longo, Jonah Woods, Andrew Zolintakis
+# This file is are main program file
+# This file creates the desktop application GUI
+# In doing so it use functions in distance.py, creating_materials.py, and recycleInfoWebscrape.py
 try:
     import tkinter as tk
     from tkinter import font
@@ -5,10 +9,7 @@ except ImportError:
     import Tkinter as tk
 
 import pandas as pd
-import csv_to_dataframe
-import numpy as np
 import recycleInfoWebscrape as riw
-import difflib
 import distance
 import creating_materials as cm
 
