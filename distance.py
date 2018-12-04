@@ -1,17 +1,23 @@
 #!/usr/bin/python
 '''
-distance.py
+Filename: 		distance.py
+Contributors:	Todd Boone II, Jackson Brietzke, Jonah Woods, Andrew Zolintakis, Frank Longo, Peter Awori
+Description:	Enables the CanCan application to retrieve distance 
+				information from Google's Distance Matrix API.
 
-Enables the CanCan application to retrieve distance 
-information from Google's Distance Matrix API.
+Modules 
+Imported:		requests
+				difflib
+				creating_materials (created by us)
 
-References:
-	https://developers.google.com/maps/documentation/distance-matrix/intro
-	http://docs.python-requests.org/en/latest/api/
+Imported By:	gui.py
+
+References:		https://developers.google.com/maps/documentation/distance-matrix/intro
+				http://docs.python-requests.org/en/latest/api/
 '''
 import requests
-import creating_materials
 import difflib
+import creating_materials
 
 GOOGLE_DISTANCE_API_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
 API_KEY = 'AIzaSyC6ELq9yvgnhnmnnMhfmfPHRBQ6KVjSfMY'
@@ -19,6 +25,7 @@ API_KEY = 'AIzaSyC6ELq9yvgnhnmnnMhfmfPHRBQ6KVjSfMY'
 # Initialize recycling locations
 recyclingLocations = creating_materials.create_locations_df()
 
+# Map GUI category names to creating_materials material name
 def categorySwitcher(category):
 	switcher={
 		'Aluminum':'Scrap Metals',
@@ -34,9 +41,10 @@ def categorySwitcher(category):
 	}
 	return switcher.get(category,"")
 
+# Retrieve full Google Distance Matrix API Response
 def getDistanceInfo(origin, destination):
 	'''
-	Add paramters to params dict
+	Add necessary params to params dict
 		Paramters:
 			{origin} - starting point for calculating travel distance and time
 			{destination} - finishing point for calculating travel distance and time
@@ -60,6 +68,7 @@ def getDistanceInfo(origin, destination):
 
 	return distanceResponse
 
+# Retrieve the list of destination addresses
 def getAddress(distanceResponse):
 	address = []
 	
@@ -74,6 +83,7 @@ def getAddress(distanceResponse):
 
 	return address
 
+# Retrieve the list of miles in between origin and destination
 def getMiles(distanceResponse):
 	distance = []
 	
@@ -90,6 +100,7 @@ def getMiles(distanceResponse):
 
 	return distance
 
+# Retrieve the list of duration times in between origin and destination
 def getDuration(distanceResponse):
 	duration = []
 
@@ -106,6 +117,7 @@ def getDuration(distanceResponse):
 
 	return duration
 
+# Retrieve the list of duration values in between origin and destination
 def getDurationValue(distanceResponse):
 	durationValue = []
 
@@ -122,6 +134,7 @@ def getDurationValue(distanceResponse):
 
 	return durationValue
 
+# Get a dictionary of closest location
 def getClosestLocation(origin, destination):
 	closestIndex = ''
 
@@ -146,6 +159,7 @@ def getClosestLocation(origin, destination):
 
 	return closestLocation
 
+# Get a full dictionary that represents closest info to display on application
 def getClosestAppropriateLocation(origin='Heinz College', material = ''):
 	'''
 	Retrieve closest location that can accept specified material
