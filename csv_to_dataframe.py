@@ -1,3 +1,11 @@
+'''
+Filename:       csv_to_dataframe.py
+Group Members:  Andrew Zolintakis, Frank Longo, Jonah Woods, Peter Awori, Todd Boone, Jackson Brietke
+Description:    Two methods return one or two dataframes from csv files
+Imported By:    gui.py 
+Imports:        Pandas
+'''
+
 import pandas as pd
 
 # Create a recyclable materials dataframe and lcoations dataframe

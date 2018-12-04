@@ -8,3 +8,5 @@ RUN APPLICATION: To run the application simply go into the cancan folder in your
 
 VIDEO LINK: https://youtu.be/KLitWQsBqeA
 
+WEB SCRAPING:  The application scrapes data from the web at application start.  This process should take about 45 seconds to run.
+If the process times out the program will run using the an already created text file with the data.
