@@ -1,3 +1,5 @@
+# Python Group 2 CanCan: Peter Awori, Todd Boone, Jackson Brietzke, Frank Longo, Jonah Woods, Andrew Zolintakis
+# This file has functions that create the DataFrames for the Materials and Locations
 import pandas as pd
 import math
 

@@ -1,4 +1,4 @@
-TEAM MEMBERS: Peter Awori, Todd Boone, Jackson Brietzke, Frank Longo, Jonah Woods, Andrew Zolintakis, 
+TEAM MEMBERS: Peter Awori, Todd Boone, Jackson Brietzke, Frank Longo, Jonah Woods, Andrew Zolintakis
 
 PYTHON MODULES: There are no python installations needed to run our application. The necessary Python modules are installed automatically with Anaconda or are in our project folder
 

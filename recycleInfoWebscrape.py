@@ -1,3 +1,5 @@
+# Python Group 2 CanCan: Peter Awori, Todd Boone, Jackson Brietzke, Frank Longo, Jonah Woods, Andrew Zolintakis
+# This file scrapes Recyling Information for our different categories
 import pandas as pd
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -8,10 +10,10 @@ html = urlopen('https://www.recyclingtown.com/recycled-materials/')
 
 # create the BeautifulSoup object
 soup = BeautifulSoup(html.read(), 'lxml')
-data = soup.find('article',{'id':'post-21'})
+data = soup.find('article', {'id': 'post-21'})
 
-#scrapes data by finding right tags in html
-#contains recyling types & general descriptions
+# scrapes data by finding right tags in html
+# contains recyling types & general descriptions
 recycleList = []
 for ul in data.findChildren('ul'):
     for li in ul.find_all('li'):
@@ -20,7 +22,7 @@ for ul in data.findChildren('ul'):
 generalrecyclyList = []
 headerList = []
 
-#creates a header list & their associated general info values as a list
+# creates a header list & their associated general info values as a list
 for x in recycleList:
     headerList.append(x.split('\n')[0])
     generalrecyclyList.append(x.split('\n')[1])
@@ -28,7 +30,7 @@ for x in recycleList:
 ############### ALUMINUM INFO ###############
 htmlAluminum = urlopen('https://www.recyclingtown.com/aluminum-recycling/')
 soupAluminum = BeautifulSoup(htmlAluminum.read(), 'lxml')
-dataAluminum = soupAluminum.find('article',{'id':'post-7'})
+dataAluminum = soupAluminum.find('article', {'id': 'post-7'})
 
 aluminumList = []
 for p in dataAluminum.findChildren('p'):
@@ -38,7 +40,7 @@ aluminumInfo = " ".join(aluminumList)
 ############### BATTERY INFO ###############
 htmlBattery = urlopen('https://www.recyclingtown.com/battery-recycling/')
 soupBattery = BeautifulSoup(htmlBattery.read(), 'lxml')
-dataBattery = soupBattery.find('article',{'id':'post-8'})
+dataBattery = soupBattery.find('article', {'id': 'post-8'})
 
 batteryList = []
 for p in dataBattery.findChildren('p'):
@@ -48,7 +50,7 @@ batteryInfo = " ".join(batteryList)
 ############### COMPUTER INFO ###############
 htmlComputer = urlopen('https://www.recyclingtown.com/computer-recycling/')
 soupComputer = BeautifulSoup(htmlComputer.read(), 'lxml')
-dataComputer = soupComputer.find('article',{'id':'post-10'})
+dataComputer = soupComputer.find('article', {'id': 'post-10'})
 
 computerList = []
 for p in dataComputer.findChildren('p'):
@@ -58,7 +60,7 @@ computerInfo = " ".join(computerList)
 ############### E-CYCLING INFO ###############
 htmlEcycle = urlopen('https://www.recyclingtown.com/e-cycling/')
 soupEcycle = BeautifulSoup(htmlEcycle.read(), 'lxml')
-dataEcycle = soupEcycle.find('article',{'id':'post-13'})
+dataEcycle = soupEcycle.find('article', {'id': 'post-13'})
 
 ecycleList = []
 for p in dataEcycle.findChildren('p'):
@@ -68,7 +70,7 @@ ecycleInfo = " ".join(ecycleList)
 ############### GLASS INFO ###############
 htmlGlass = urlopen('https://www.recyclingtown.com/glass-recycling/')
 soupGlass = BeautifulSoup(htmlGlass.read(), 'lxml')
-dataGlass = soupGlass.find('article',{'id':'post-14'})
+dataGlass = soupGlass.find('article', {'id': 'post-14'})
 
 glassList = []
 for p in dataGlass.findChildren('p'):
@@ -78,7 +80,7 @@ glassInfo = " ".join(glassList)
 ############### MOBILE PHONE INFO ###############
 htmlPhone = urlopen('https://www.recyclingtown.com/mobile-phone-recycling/')
 soupPhone = BeautifulSoup(htmlPhone.read(), 'lxml')
-dataPhone = soupPhone.find('article',{'id':'post-16'})
+dataPhone = soupPhone.find('article', {'id': 'post-16'})
 
 phoneList = []
 for p in dataPhone.findChildren('p'):
@@ -88,7 +90,7 @@ phoneInfo = " ".join(phoneList)
 ############### PAPER PHONE INFO ###############
 htmlPaper = urlopen('https://www.recyclingtown.com/paper-recycling/')
 soupPaper = BeautifulSoup(htmlPaper.read(), 'lxml')
-dataPaper = soupPaper.find('article',{'id':'post-17'})
+dataPaper = soupPaper.find('article', {'id': 'post-17'})
 
 paperList = []
 for p in dataPaper.findChildren('p'):
@@ -98,7 +100,7 @@ paperInfo = " ".join(paperList)
 ############### PLASTIC PHONE INFO ###############
 htmlPlastic = urlopen('https://www.recyclingtown.com/plastic-recycling/')
 soupPlastic = BeautifulSoup(htmlPlastic.read(), 'lxml')
-dataPlastic = soupPlastic.find('article',{'id':'post-18'})
+dataPlastic = soupPlastic.find('article', {'id': 'post-18'})
 
 plasticList = []
 for p in dataPlastic.findChildren('p'):
@@ -108,7 +110,7 @@ plasticInfo = " ".join(plasticList)
 ############### TIRE PHONE INFO ###############
 htmlTire = urlopen('https://www.recyclingtown.com/tire-recycling/')
 soupTire = BeautifulSoup(htmlTire.read(), 'lxml')
-dataTire = soupTire.find('article',{'id':'post-29'})
+dataTire = soupTire.find('article', {'id': 'post-29'})
 
 tireList = []
 for p in dataTire.findChildren('p'):
@@ -118,7 +120,7 @@ tireInfo = " ".join(tireList)
 ############### WASTE PHONE INFO ###############
 htmlWaste = urlopen('https://www.recyclingtown.com/waste-recycling/')
 soupWaste = BeautifulSoup(htmlWaste.read(), 'lxml')
-dataWaste = soupWaste.find('article',{'id':'post-30'})
+dataWaste = soupWaste.find('article', {'id': 'post-30'})
 
 wasteList = []
 for p in dataWaste.findChildren('p'):
@@ -128,7 +130,7 @@ wasteInfo = " ".join(wasteList)
 ############### WATER PHONE INFO ###############
 htmlWater = urlopen('https://www.recyclingtown.com/water-recycling/')
 soupWater = BeautifulSoup(htmlWater.read(), 'lxml')
-dataWater = soupWater.find('article',{'id':'post-31'})
+dataWater = soupWater.find('article', {'id': 'post-31'})
 
 waterList = []
 for p in dataWater.findChildren('p'):
@@ -137,7 +139,7 @@ waterInfo = " ".join(waterList)
 
 #####################################################################
 
-#dumps all of the recycling additional information into 1 list
+# dumps all of the recycling additional information into 1 list
 allList = []
 allList.append(aluminumInfo)
 allList.append(batteryInfo)
@@ -152,13 +154,14 @@ allList.append(wasteInfo)
 allList.append(waterInfo)
 
 
-
 def getRecycleInfoDF():
-    #creates a dataframe of recycling name, general info, additional info
-    dictionary = {'General Info':generalrecyclyList,'Recycling':headerList, 'Additional Info':allList}
+    # creates a dataframe of recycling name, general info, additional info
+    dictionary = {'General Info': generalrecyclyList,
+                  'Recycling': headerList, 'Additional Info': allList}
     d1 = pd.DataFrame(dictionary)
-    d1 = d1[['Recycling','General Info','Additional Info']]
+    d1 = d1[['Recycling', 'General Info', 'Additional Info']]
     return d1
     # d1.to_csv('recycleInfo.csv')
+
 
 getRecycleInfoDF()
